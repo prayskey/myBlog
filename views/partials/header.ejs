@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./SVG icons/circle-outline-shape-svgrepo-com.svg">
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>myBlog</title>
+  </head>
+  <body class="font-[Mona_Sans] pt-20 px-16 text-sm">
+    <!-- Header -->
+    <header
+      class="flex px-4 bg-white z-10 py-4 items-center justify-between fixed top-0 left-0 w-full"
+    >
+      <!-- Left section -->
+      <section class="flex space-x-0.5 items-center">
+        <!-- Company Logo -->
+         <img src="./SVG icons/circle-outline-shape-svgrepo-com.svg" alt="" class="h-5 w-5">
+        <p class="font-bold text-lg">myBlog</p>
+      </section>
+      <!-- Middle section -->
+      <section>
+        <ul class="flex space-x-5">
+          <li>
+            <a href="/" class="font-bold transition hover:text-gray-500">Home</a>
+          </li>
+          <li>
+            <a href="" class="font-bold transition hover:text-gray-500"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="" class="font-bold transition hover:text-gray-500"
+              >Solutions</a
+            >
+          </li>
+          <li>
+            <a href="" class="font-bold transition hover:text-gray-500"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a href="" class="font-bold transition hover:text-gray-500"
+              >Resources</a
+            >
+          </li>
+          <li>
+            <a href="" class="font-bold transition hover:text-gray-500"
+              >Company</a
+            >
+          </li>
+          <li>
+            <a href="/compose" class="font-bold transition hover:text-gray-500"
+              >Compose</a
+            >
+          </li>
+        </ul>
+      </section>
+      <!-- Right section -->
+      <section class="flex space-x-7">
+        <button
+          class="cursor-pointer transition hover:bg-black hover:text-white border-2 rounded-xl px-2 font-bold text-sm"
+        >
+          Get Started
+        </button>
+        <!-- User profile pic -->
+        <img class="h-10 w-10 rounded-full" src="./images/My pic.jpg" alt="" />
+      </section>
+    </header>

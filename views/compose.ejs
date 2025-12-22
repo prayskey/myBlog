@@ -1,0 +1,32 @@
+<%- include("./partials/header.ejs") %>
+
+<main class="relative h-dvh">
+  <section class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h1 class="font-bold text-3xl text-center">Compose your blog here</h1>
+    <form class="flex flex-col space-y-4" action="/submit" method="post">
+      <input
+        class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
+        type="text"
+        id="author"
+        name="author"
+        placeholder="Enter name of Author"
+      />
+      <input
+        class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
+        type="text"
+        name="hashTags"
+        id=""
+        placeholder="Enter HashTags # Research, Design etc"
+      />
+      <textarea class="border border-gray-400 p-2.5 focus:outline-0" name="blog-text" id="" placeholder="Enter your text" cols="30" rows="10"></textarea>
+      <button
+        class="rounded-2xl border-2 border-gray-500 text-gray-500 hover:text-white hover:bg-gray-500 font-bold transition w-fit py-1 px-3 cursor-pointer"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </section>
+</main>
+
+<%- include("./partials/footer.ejs") %>
