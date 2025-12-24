@@ -1,426 +1,149 @@
 <%- include("./partials/header.ejs") %>
-    <main class="space-y-28">
-      <!-- Section for home page introduction -->
-      <section class="text-center space-y-8 my-20">
-        <h1 class="font-bold text-5xl">
-          Inside Design: Stories and interviews
-        </h1>
-        <p class="text-gray-500">
-          Subscribe to learn about new product features, the latest in
-          technology and updates
+<main class="space-y-28">
+  <!-- Section for home page introduction -->
+  <section class="text-center space-y-8 my-20">
+    <h1 class="font-bold text-5xl">Inside Design: Stories and interviews</h1>
+    <p class="text-gray-500">
+      Subscribe to learn about new product features, the latest in technology
+      and updates
+    </p>
+    <form
+      action=""
+      method="post"
+      class="border border-gray-400 rounded-lg inline-block p-1 space-x-1.5"
+    >
+      <input
+        type="email"
+        name=""
+        id=""
+        placeholder="Enter your email"
+        class="w-80 md:ml-2 focus:outline-0"
+      />
+      <button
+        type="submit"
+        class="bg-black py-3 px-4 text-white rounded-lg cursor-pointer"
+      >
+        Subscribe
+      </button>
+    </form>
+  </section>
+
+  <!-- Section for new blog posts -->
+  <section class="w-full">
+    <h1 class="font-bold text-2xl my-4">Recent blog posts</h1>
+
+    <% if (posts.length) { %>
+
+    <div class="flex w-full justify-between">
+      <!-- Newest blog post received from server -->
+      <div class="w-[48%] space-y-2.5">
+        <!-- Image for post -->
+
+        <img
+          class="w-full h-111.25 mb-3"
+          src="<%= posts[0].blogImage %>"
+          alt=""
+        />
+
+        <!-- Author of the current blog post -->
+        <p class="text-gray-500 font-bold">
+          <span><%= posts[0].author %></span><span class="mx-1">&#9679;</span
+          ><span>20 Jan 2024</span>
         </p>
-        <form
-          action=""
-          method="post"
-          class="border border-gray-400 rounded-lg inline-block p-1 space-x-1.5"
-        >
-          <input
-            type="email"
-            name=""
-            id=""
-            placeholder="Enter your email"
-            class="w-80 md:ml-2 focus:outline-0"
-          />
-          <button
-            type="submit"
-            class="bg-black py-3 px-4 text-white rounded-lg cursor-pointer"
-          >
-            Subscribe
-          </button>
-        </form>
-      </section>
+        <h1 class="font-bold text-2xl"><%= posts[0].blogTitle %></h1>
+        <p class="text-[16px]"><%= posts[0].blogTextContent %></p>
+        <!-- Blog hash tags -->
+        <ul class="flex space-x-2">
+          <% posts[0].hashTags.forEach(hashTag => { %>
+          <li>
+            <button class="border-2 rounded-2xl py-0.5 px-2">
+              <%= hashTag %>
+            </button>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
 
-      <!-- Section for new blog posts -->
-      <section class="w-full">
-        <h1 class="font-bold text-2xl my-4">Recent blog posts</h1>
-        <div class="flex w-full justify-between">
-          <!-- Newest blog post received from server -->
-          <div class="w-[48%] space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full mb-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
+      <!-- Few blog post card -->
+      <div class="w-[48%] space-y-8">
+        <% for( let i = 0; i < posts.length; i++ ) { %> <% if(i >= 3) break; %>
+
+        <!-- blog card -->
+        <div class="flex justify-between w-full">
+          <img class="w-[48%] h-53.25" src="<%= posts[i].blogImage %>" alt="" />
+          <div class="w-[48%] space-y-2">
             <!-- Author of the current blog post -->
             <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
+              <span><%= posts[i].author %></span><span class="mx-1">&#9679;</span
               ><span>20 Jan 2024</span>
             </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
+            <h1 class="font-bold text-xl"><%= posts[i].blogTitle %></h1>
+            <p class="text-[16px]"><%= posts[i].blogTextContent %></p>
             <!-- Blog hash tags -->
             <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
+              <% posts[i].hashTags.forEach(hashTag => { %>
               <li>
                 <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
+                  <%= hashTag %>
                 </button>
               </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Few blog post card -->
-          <div class="w-[48%] space-y-8">
-            <!-- blog card -->
-            <div class="flex justify-between w-full">
-              <img
-                class="w-[48%]"
-                src="./images/Japanese woman staring.avif"
-                alt=""
-              />
-              <div class="w-[48%] space-y-2">
-                <!-- Author of the current blog post -->
-                <p class="text-gray-500 font-bold">
-                  <span>Phoneix Baker</span><span class="mx-1">&#9679;</span
-                  ><span>19 Jan 2024</span>
-                </p>
-                <h1 class="font-bold text-xl">
-                  Relentless Pursuit of Perfection in Product Design.
-                </h1>
-                <p class="text-[16px]">
-                  I began to notice that there was a sharp contrast between
-                  well-made...
-                </p>
-                <!-- Blog hash tags -->
-                <ul class="flex space-x-2">
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Design
-                    </button>
-                  </li>
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Research
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- blog card -->
-            <div class="flex justify-between w-full">
-              <img
-                class="w-[48%]"
-                src="./images/Japanese woman staring.avif"
-                alt=""
-              />
-              <div class="w-[48%] space-y-2">
-                <!-- Author of the current blog post -->
-                <p class="text-gray-500 font-bold">
-                  <span>Phoneix Baker</span><span class="mx-1">&#9679;</span
-                  ><span>19 Jan 2024</span>
-                </p>
-                <h1 class="font-bold text-xl">
-                  Relentless Pursuit of Perfection in Product Design.
-                </h1>
-                <p class="text-[16px]">
-                  I began to notice that there was a sharp contrast between
-                  well-made...
-                </p>
-                <!-- Blog hash tags -->
-                <ul class="flex space-x-2">
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Design
-                    </button>
-                  </li>
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Research
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- blog card -->
-            <div class="flex justify-between w-full">
-              <img
-                class="w-[48%]"
-                src="./images/Japanese woman staring.avif"
-                alt=""
-              />
-              <div class="w-[48%] space-y-2">
-                <!-- Author of the current blog post -->
-                <p class="text-gray-500 font-bold">
-                  <span>Phoneix Baker</span><span class="mx-1">&#9679;</span
-                  ><span>19 Jan 2024</span>
-                </p>
-                <h1 class="font-bold text-xl">
-                  Relentless Pursuit of Perfection in Product Design.
-                </h1>
-                <p class="text-[16px]">
-                  I began to notice that there was a sharp contrast between
-                  well-made...
-                </p>
-                <!-- Blog hash tags -->
-                <ul class="flex space-x-2">
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Design
-                    </button>
-                  </li>
-                  <li>
-                    <button class="border-2 rounded-2xl py-0.5 px-2">
-                      Research
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section for all blog post -->
-      <section>
-        <h1 class="font-bold text-3xl">All blog posts</h1>
-        <!-- Blogs container -->
-        <div class="grid grid-cols-3 gap-6">
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="space-y-2.5">
-            <!-- Image for post -->
-            <img
-              class="w-full my-3"
-              src="./images/two women sitting and talking on a table.avif"
-              alt=""
-            />
-            <!-- Author of the current blog post -->
-            <p class="text-gray-500 font-bold">
-              <span>Olivia Rhye</span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
-            </p>
-            <h1 class="font-bold text-2xl">
-              Conversations with London Makr & Co.
-            </h1>
-            <p class="text-[16px]">
-              We sat down with London's fast-growing brand and product design
-              studio, Makr & Co. to find out how they've used Untitled UI to 2X
-              their revenue.
-            </p>
-            <!-- Blog hash tags -->
-            <ul class="flex space-x-2">
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">Design</button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Research
-                </button>
-              </li>
-              <li>
-                <button class="border-2 rounded-2xl py-0.5 px-2">
-                  Interview
-                </button>
-              </li>
+              <% }) %>
             </ul>
           </div>
         </div>
-      </section>
 
-      
-            <!-- Line break -->
-            <div class="h-0.5 bg-gray-300 my-10"></div>
+        <% } %>
+      </div>
+    </div>
 
-<%- include("./partials/footer.ejs") %>
+    <% } else {%>
+    <h1>There are no posts to display.</h1>
+    <% } %>
+  </section>
+
+  <!-- Section for all blog post -->
+  <section>
+    <h1 class="font-bold text-3xl my-5">All blog posts</h1>
+    <!-- Blogs container -->
+
+    <% if (posts.length) { %>
+
+    <div class="grid grid-cols-3 gap-6">
+      <% posts.forEach(post => { %>
+      <div class="space-y-2.5">
+        <!-- Image for post -->
+        <img class="w-full h-80 mb-3" src="<%= post.blogImage %>" alt="" />
+        <!-- Author of the current blog post -->
+        <p class="text-gray-500 font-bold">
+          <span><%= post.author %></span><span class="mx-1">&#9679;</span
+          ><span>20 Jan 2024</span>
+        </p>
+        <h1 class="font-bold text-2xl"><%= post.blogTitle %></h1>
+        <p class="text-[16px]"><%= post.blogTextContent %></p>
+
+        <!-- Blog hash tags -->
+        <ul class="flex space-x-2">
+          <% post.hashTags.forEach(hashTag => { %>
+          <li>
+            <button class="border-2 rounded-2xl py-0.5 px-2">
+              <%= hashTag %>
+            </button>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <% }) %>
+    </div>
+
+    <% } else { %>
+    <h1 class="font-bold text-gray-300 text-xl text-center my-5">
+      There are no posts to load.
+    </h1>
+    <% } %>
+  </section>
+
+  <!-- Line break -->
+  <div class="h-0.5 bg-gray-300 my-10"></div>
+
+  <%- include("./partials/footer.ejs") %>
+</main>
