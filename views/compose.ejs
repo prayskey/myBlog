@@ -15,6 +15,7 @@
         name="blogTitle"
         id="blog-title"
         placeholder="Enter the blog title"
+        required
       />
       <input
         class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
@@ -22,6 +23,7 @@
         id="author"
         name="author"
         placeholder="Enter name of Author"
+        required
       />
       <input
         class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
@@ -29,6 +31,7 @@
         name="hashTags"
         id=""
         placeholder="Enter HashTags # Research, Design etc"
+        required
       />
       <input
         class="border p-1 border-gray-400"
@@ -36,6 +39,7 @@
         accept="image/*"
         name="blogImage"
         id="blogImage"
+        required
       />
       <textarea
         class="border border-gray-400 p-2.5 focus:outline-0"
@@ -54,8 +58,5 @@
     </form>
   </section>
 </main>
-
-<!-- Line break -->
-<div class="h-0.5 bg-gray-300 my-10"></div>
 
 <%- include("./partials/footer.ejs") %>

@@ -50,7 +50,9 @@
           <span><%= posts[0].author %></span><span class="mx-1">&#9679;</span
           ><span>20 Jan 2024</span>
         </p>
-        <h1 class="font-bold text-2xl"><%= posts[0].blogTitle %></h1>
+        <a href="/posts/<%= posts[0].postId %>" class="font-bold text-2xl"
+          ><%= posts[0].blogTitle %></a
+        >
         <p class="text-[16px]"><%= posts[0].blogTextContent %></p>
         <!-- Blog hash tags -->
         <ul class="flex space-x-2">
@@ -74,10 +76,12 @@
           <div class="w-[48%] space-y-2">
             <!-- Author of the current blog post -->
             <p class="text-gray-500 font-bold">
-              <span><%= posts[i].author %></span><span class="mx-1">&#9679;</span
-              ><span>20 Jan 2024</span>
+              <span><%= posts[i].author %></span
+              ><span class="mx-1">&#9679;</span><span>20 Jan 2024</span>
             </p>
-            <h1 class="font-bold text-xl"><%= posts[i].blogTitle %></h1>
+            <a href="/posts/<%= posts[i].postId %>" class="font-bold text-xl"
+              ><%= posts[i].blogTitle %></a
+            >
             <p class="text-[16px]"><%= posts[i].blogTextContent %></p>
             <!-- Blog hash tags -->
             <ul class="flex space-x-2">
@@ -118,7 +122,9 @@
           <span><%= post.author %></span><span class="mx-1">&#9679;</span
           ><span>20 Jan 2024</span>
         </p>
-        <h1 class="font-bold text-2xl"><%= post.blogTitle %></h1>
+        <a href="/posts/<%= post.postId %>" class="font-bold text-2xl"
+          ><%= post.blogTitle %></a
+        >
         <p class="text-[16px]"><%= post.blogTextContent %></p>
 
         <!-- Blog hash tags -->
@@ -141,9 +147,6 @@
     </h1>
     <% } %>
   </section>
-
-  <!-- Line break -->
-  <div class="h-0.5 bg-gray-300 my-10"></div>
 
   <%- include("./partials/footer.ejs") %>
 </main>
