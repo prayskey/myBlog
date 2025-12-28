@@ -1,0 +1,35 @@
+<%- include("./partials/header.ejs") %>
+
+<main class="min-h-dvh px-28">
+  <a href="/" class="text-blue-600">← Back to home</a>
+
+  <section class="flex space-x-4">
+    <form action="/posts/<%= post.postId %>/edit" method="post">
+      <button
+        type="submit"
+        class="bg-blue-600 border-0 font-bold text-1.5 text-white py-1 px-2 hover:cursor-pointer"
+      >
+        Edit
+      </button>
+    </form>
+    <form action="/posts/<%= post.postId %>/delete" method="post">
+      <button
+        type="submit"
+        class="bg-red-600 border-0 font-bold text-1.5 text-white py-1 px-2 hover:cursor-pointer"
+      >
+        Delete
+      </button>
+    </form>
+  </section>
+  <article class="">
+    <h1 class="text-3xl font-bold text-center my-5"><%= post.blogTitle %></h1>
+
+    <img src="<%= post.blogImage %>" class="w-full mb-4 mx-auto" />
+
+    <p class="text-gray-800 text-lg text-justify">
+      <%= post.blogTextContent %>
+    </p>
+  </article>
+</main>
+
+<%- include("./partials/footer.ejs") %>

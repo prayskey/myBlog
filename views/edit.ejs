@@ -1,0 +1,54 @@
+<%- include("./partials/header.ejs") %>
+<main class="min-h-dvh">
+  <form
+    class="flex flex-col space-y-7"
+    action="/update-post/<%= post.postId %>"
+    method="post"
+  >
+    <input
+      class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
+      type="text"
+      name="blogTitle"
+      id="blog-title"
+      placeholder="Enter the blog title"
+      value="<%= post.blogTitle%>"
+      required
+    />
+    <input
+      class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
+      type="text"
+      id="author"
+      name="author"
+      placeholder="Enter name of Author"
+      value="<%= post.author %>"
+      required
+    />
+    <input
+      class="border-b-gray-400 border-b py-1 px-3 focus:outline-0"
+      type="text"
+      name="hashTags"
+      id=""
+      value="<%= post.hashTags %>"
+      placeholder="Enter HashTags # Research, Design etc"
+      required
+    />
+    <textarea
+      class="border border-gray-400 p-2.5 focus:outline-0"
+      name="blogText"
+      id=""
+      placeholder="Enter your text"
+      rows="10"
+    >
+<%= post.blogTextContent %> 
+</textarea
+    >
+
+    <button
+      type="submit"
+      class="bg-green-500 active:bg-green-300 hover:bg-green-400 m-auto py-2 px-3.5 text-white font-bold cursor-pointer"
+    >
+      Save changes
+    </button>
+  </form>
+</main>
+<%- include("./partials/footer.ejs") %>
